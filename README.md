@@ -8,6 +8,8 @@
   1. Assign quality scores to the Parallel Corpus
   2. Extract high-quality Parallel Corpus from the noisy Pseudo-Parallel corpus
   3. Perform Sentence Alignment on a given misaligned Parallel corpus.
+
+#### The output of all the above tasks are stored in a folder `out` created in the current working directory 
   
 
 #### Prerequisites
