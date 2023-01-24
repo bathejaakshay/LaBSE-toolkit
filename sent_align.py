@@ -53,7 +53,7 @@ class LaBSE:
             temp_src = [src[i]]*len(tgt)
             temp_tgt = tgt
             scores = get_score(temp_src, temp_tgt, self.model_labse, batch_size)
-            print(f'{max(scores["similarity"])} , {threshold}')
+            # print(f'{max(scores["similarity"])} , {threshold}')
             if max(scores["similarity"]) >= threshold:
                 ind = np.where(scores["similarity"] == max(scores["similarity"]))[0][0]
                 final_src.append(temp_src[ind])
