@@ -49,7 +49,7 @@ class LaBSE:
         """
         final_src=[]
         final_tgt=[]
-        for i in tqdm(range(len(src))):
+        for i in tqdm(range(len(src)), position=0, leave=True):
             temp_src = [src[i]]*len(tgt)
             temp_tgt = tgt
             scores = get_score(temp_src, temp_tgt, self.model_labse, batch_size)
