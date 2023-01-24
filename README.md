@@ -33,7 +33,7 @@ python LaBSE-toolkit/sent_align.py --source test-en.txt --target test-mr.txt --b
 
 ## Task 3: Sentence Alignment in Parallel Corpus  
 ### set `--operation` flag as `sent-align`  
-### and set `--threshold` as per the quality of parallel corpus required  
+### and set `--threshold` as per the required quality of parallel corpus  
 
 ```
 python LaBSE-toolkit/sent_align.py --source test-en.txt --target test-mr.txt --batch_size 1000 --operation sent-align --threshold 0.8
