@@ -25,7 +25,7 @@ def get_sim_scores(sentences_src, sentences_tgt, model_labse):
     return scores
 
 
-def get_score(src_sents, tgt_sents, model_labse, batch_size):
+def get_score(src_sents, tgt_sents, model_labse, batch_size, pbar = None):
     clean_src_sents, clean_tgt_sents = [], []
     for src_sent, tgt_sent in zip(src_sents, tgt_sents):
         str_src_sent = str(src_sent).strip()
@@ -35,6 +35,7 @@ def get_score(src_sents, tgt_sents, model_labse, batch_size):
         else:
             clean_src_sents.append(str_src_sent)
             clean_tgt_sents.append(str_tgt_sent)
+    
     num_batches = math.ceil(len(clean_src_sents) / batch_size)
     scores = []
     for i in tqdm(range(num_batches), position=0, leave=True):
@@ -42,6 +43,7 @@ def get_score(src_sents, tgt_sents, model_labse, batch_size):
         tgt_sents = clean_tgt_sents[i * batch_size : i * batch_size + batch_size]
         temp_scores = get_sim_scores(src_sents, tgt_sents, model_labse)
         scores.extend(temp_scores)
+        pbar.update()
     final_scores = pd.DataFrame({"similarity":scores})
     return final_scores
     # if '/' in src_file_path:
