@@ -49,7 +49,7 @@ class LaBSE:
         """
         final_src=[]
         final_tgt=[]
-        for i in tqdm(range(len(src)), position=0, leave=True) as pbar:
+        for i in tqdm(range(len(src))):
             temp_src = [src[i]]*len(tgt)
             temp_tgt = tgt
             scores = get_score(temp_src, temp_tgt, self.model_labse, batch_size)
@@ -58,7 +58,6 @@ class LaBSE:
                 ind = np.where(scores["similarity"] == max(scores["similarity"]))[0][0]
                 final_src.append(temp_src[ind])
                 final_tgt.append(temp_tgt[ind])
-            pbar.update()
         path = os.getcwd()
         path+="/out"
         if not os.path.exists(path):
