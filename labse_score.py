@@ -38,7 +38,7 @@ def get_score(src_sents, tgt_sents, model_labse, batch_size, pbar = None):
     
     num_batches = math.ceil(len(clean_src_sents) / batch_size)
     scores = []
-    for i in tqdm(range(num_batches), position=0, leave=True):
+    for i in tqdm(range(num_batches)):
         src_sents = clean_src_sents[i * batch_size : i * batch_size + batch_size]
         tgt_sents = clean_tgt_sents[i * batch_size : i * batch_size + batch_size]
         temp_scores = get_sim_scores(src_sents, tgt_sents, model_labse)
