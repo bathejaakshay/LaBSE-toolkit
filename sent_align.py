@@ -49,10 +49,10 @@ class LaBSE:
         """
         final_src=[]
         final_tgt=[]
-        for i in tqdm(range(len(src)) , position=0, leave=True):
+        for i in tqdm(range(len(src))):
             temp_src = [src[i]]*len(tgt)
             temp_tgt = tgt
-            scores = get_score(temp_src, temp_tgt, self.model_labse, batch_size)
+            scores = get_score(temp_src, temp_tgt, self.model_labse, batch_size, False)
             # print(f'{max(scores["similarity"])} , {threshold}')
             if max(scores["similarity"]) >= threshold:
                 ind = np.where(scores["similarity"] == max(scores["similarity"]))[0][0]
