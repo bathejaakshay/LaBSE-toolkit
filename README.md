@@ -51,5 +51,6 @@ python LaBSE-toolkit/sent_align.py --source test-en.txt --target test-mr.txt --b
 
 ```
 
+## The hands-on tutorial can be found in this [Colab Notebook](https://colab.research.google.com/drive/1jLrI8FDCiGP4KKfPqzl018-u1HclS4V4?usp=sharing) 
 
 
