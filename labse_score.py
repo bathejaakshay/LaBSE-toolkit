@@ -43,7 +43,6 @@ def get_score(src_sents, tgt_sents, model_labse, batch_size, pbar = None):
         tgt_sents = clean_tgt_sents[i * batch_size : i * batch_size + batch_size]
         temp_scores = get_sim_scores(src_sents, tgt_sents, model_labse)
         scores.extend(temp_scores)
-        pbar.update()
     final_scores = pd.DataFrame({"similarity":scores})
     return final_scores
     # if '/' in src_file_path:
